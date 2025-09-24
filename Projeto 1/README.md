@@ -115,10 +115,79 @@ Escolhidas as features foi criado um novo dataset e feito o seu tratamento. Remo
 ## Pipeline do modelo
 
 **1**. Extração da features (X) e da target (y) do DataFrame
-**2**. Construção dos tensor antes da divisão entre treinamento/teste.
-**3**. Divisão entre treinamento e validação usando Pytorch split
-**4**. Recriação do DataLoader com os valores normalizados. Para isso foi utilizado dois tipos de normalização: Z-score e Min-Máx.
-**5**. Por fim a configuração do modelo
-escolhendo tipo de função, o otimizador que foram dois o SGD e o Adam, e a função de perda que foi MSE.
 
-Após esse procedimento foi feito o treinamento do modelo, o teste para novas entradas e sua avaliação através da métricas MSE,RMSE, MAE e R2.
+**2**. Construção dos tensor antes da divisão entre treinamento/teste.
+
+**3**. Divisão entre treinamento e validação usando Pytorch split
+
+**4**. Recriação do DataLoader com os valores normalizados. Para isso foi utilizado dois tipos de normalização: Z-score e Min-Máx.
+
+**5**. Por fim a configuração do modelo
+escolhendo tipo de função, o otimizador, que foram dois o SGD e o Adam, e a função de perda que foi MSE.
+
+## Resultados
+
+Após esse procedimento foi feito o treinamento do modelo, o teste para novas entradas e sua avaliação através das métricas MSE,RMSE, MAE e R2.
+
+### Para o otimizador SGD com a normalização Z-score
+
+Obtivemos o seguinte gráfico de erro:
+![](SGD_Zscore.png)
+
+E as seguintes métricas:
+
+```
+Evaluation Metrics (Z-score Normalization):
+Mean Squared Error (MSE) on validation set: 28486.44
+Root Mean Squared Error (RMSE) on validation set: 168.78
+Mean Absolute Error (MAE) on validation set: 128.99
+R-squared (R2) on validation set: 0.26
+```
+
+### Para o otimizador SGD com a nomalização Min-Máx
+
+Obtivemos o seguinte gráfico:
+![](SGD_MinMax.png)
+
+E as seguintes métrica:
+
+```
+Evaluation Metrics (Min-Max Normalization):
+Mean Squared Error (MSE) on validation set: 28490.79
+Root Mean Squared Error (RMSE) on validation set: 168.79
+Mean Absolute Error (MAE) on validation set: 128.63
+R-squared (R2) on validation set: 0.26
+```
+
+### Para o otimizador Adam com Z-score
+
+Obtivemos o seguinte gráfico:
+![](Adam_Zscore.png)
+
+E as seguintes métricas:
+
+```
+Evaluation Metrics (Z-score Normalization):
+Mean Squared Error (MSE) on validation set: 28487.71
+Root Mean Squared Error (RMSE) on validation set: 168.78
+Mean Absolute Error (MAE) on validation set: 128.61
+R-squared (R2) on validation set: 0.26
+```
+
+### Para o otimizador Adam com Min-Máx
+
+Obtivemos o seguinte gráfico:
+![](Adam_MinMax.png)
+
+E as seguintes métricas:
+
+```
+
+
+Evaluation Metrics (Min-Max Normalization):
+Mean Squared Error (MSE) on validation set: 28503.67
+Root Mean Squared Error (RMSE) on validation set: 168.83
+Mean Absolute Error (MAE) on validation set: 127.77
+R-squared (R2) on validation set: 0.26
+
+```
