@@ -7,9 +7,8 @@ Para o projeto foi utilizado como base o notebook fornecido pelo professor [Ivan
 Objetivos especificos:
 
 - Melhorar o EDA e seleção/criação de features
-
-* Diferentes formas de normalização (e.g: min-max)
-* Modificação do algoritmo de otimização (e.g: adam, nadam, etc)
+- Diferentes formas de normalização (e.g: min-max)
+- Modificação do algoritmo de otimização (e.g: adam, nadam, etc)
 
 ## Passos
 
