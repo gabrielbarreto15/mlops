@@ -127,7 +127,22 @@ escolhendo tipo de função, o otimizador, que foram dois o SGD e o Adam, e a fu
 
 ## Resultados
 
-Após esse procedimento foi feito o treinamento do modelo, o teste para novas entradas e sua avaliação através das métricas MSE,RMSE, MAE e R2.
+Após esse procedimento foi feito o treinamento do modelo, o teste para novas entradas e sua avaliação através das métricas MSE,RMSE, MAE e R2. O objetivo era obter métricas melhores que a referência incial fornecida pelo professor.
+
+## Resultado de referência
+
+Gráfico de referência no qual foi utilizado o otimizador SGD e a normalização Z-score:
+![](referencia.png)
+
+E as seguintes métricas:
+
+```
+Evaluation Metrics (Z-score Normalization):
+Mean Squared Error (MSE) on validation set: 40895.58
+Root Mean Squared Error (RMSE) on validation set: 202.23
+Mean Absolute Error (MAE) on validation set: 152.42
+R-squared (R2) on validation set: 0.23
+```
 
 ### Para o otimizador SGD com a normalização Z-score
 
@@ -182,12 +197,58 @@ Obtivemos o seguinte gráfico:
 E as seguintes métricas:
 
 ```
-
-
 Evaluation Metrics (Min-Max Normalization):
 Mean Squared Error (MSE) on validation set: 28503.67
 Root Mean Squared Error (RMSE) on validation set: 168.83
 Mean Absolute Error (MAE) on validation set: 127.77
 R-squared (R2) on validation set: 0.26
-
 ```
+
+Por fim, foi feita a comparação com a utilização da biblioteca [Lazy Predict](https://github.com/shankarpandala/lazypredict).
+
+## Resultados dos modelos do Lazy Predict
+
+| Model                         | Adjusted R-Squared | R-Squared |     RMSE | Time Taken |
+| :---------------------------- | -----------------: | --------: | -------: | ---------: |
+| GradientBoostingRegressor     |               0.31 |      0.31 |   164.63 |       1.23 |
+| HistGradientBoostingRegressor |               0.30 |      0.30 |   165.57 |       0.25 |
+| LGBMRegressor                 |               0.30 |      0.30 |   165.60 |       0.24 |
+| MLPRegressor                  |               0.30 |      0.30 |   166.30 |      10.46 |
+| LassoLarsIC                   |               0.27 |      0.27 |   169.20 |       0.05 |
+| LinearRegression              |               0.27 |      0.27 |   169.20 |       0.06 |
+| Lars                          |               0.27 |      0.27 |   169.20 |       0.04 |
+| LassoLarsCV                   |               0.27 |      0.27 |   169.20 |       0.08 |
+| LarsCV                        |               0.27 |      0.27 |   169.20 |       0.06 |
+| TransformedTargetRegressor    |               0.27 |      0.27 |   169.20 |       0.03 |
+| Ridge                         |               0.27 |      0.27 |   169.20 |       0.02 |
+| RidgeCV                       |               0.27 |      0.27 |   169.21 |       0.04 |
+| BayesianRidge                 |               0.27 |      0.27 |   169.21 |       0.06 |
+| LassoCV                       |               0.27 |      0.27 |   169.21 |       0.13 |
+| SGDRegressor                  |               0.27 |      0.27 |   169.22 |       0.10 |
+| LassoLars                     |               0.27 |      0.27 |   169.31 |       0.03 |
+| Lasso                         |               0.27 |      0.27 |   169.31 |       0.03 |
+| ElasticNetCV                  |               0.27 |      0.27 |   169.37 |       0.14 |
+| OrthogonalMatchingPursuitCV   |               0.27 |      0.27 |   169.40 |       0.04 |
+| PoissonRegressor              |               0.26 |      0.26 |   170.20 |       0.08 |
+| ElasticNet                    |               0.26 |      0.26 |   170.97 |       0.02 |
+| XGBRegressor                  |               0.25 |      0.26 |   171.10 |       0.26 |
+| HuberRegressor                |               0.25 |      0.25 |   171.83 |       0.14 |
+| TweedieRegressor              |               0.24 |      0.24 |   172.98 |       0.05 |
+| GammaRegressor                |               0.23 |      0.23 |   173.47 |       0.05 |
+| NuSVR                         |               0.23 |      0.23 |   173.54 |      20.41 |
+| LinearSVR                     |               0.23 |      0.23 |   174.19 |       0.06 |
+| AdaBoostRegressor             |               0.23 |      0.23 |   174.22 |       0.29 |
+| PassiveAggressiveRegressor    |               0.21 |      0.21 |   175.79 |       0.04 |
+| RandomForestRegressor         |               0.21 |      0.21 |   175.80 |       6.01 |
+| SVR                           |               0.21 |      0.21 |   176.30 |      19.83 |
+| OrthogonalMatchingPursuit     |               0.20 |      0.20 |   177.23 |       0.02 |
+| KNeighborsRegressor           |               0.17 |      0.17 |   180.15 |       0.31 |
+| BaggingRegressor              |               0.16 |      0.16 |   181.51 |       0.63 |
+| ExtraTreesRegressor           |               0.14 |      0.14 |   183.98 |       4.36 |
+| RANSACRegressor               |               0.06 |      0.06 |   191.84 |       0.16 |
+| DummyRegressor                |              -0.00 |     -0.00 |   198.36 |       0.02 |
+| QuantileRegressor             |              -0.08 |     -0.08 |   205.72 |      12.12 |
+| ExtraTreeRegressor            |              -0.26 |     -0.26 |   222.47 |       0.14 |
+| DecisionTreeRegressor         |              -0.35 |     -0.35 |   230.44 |       0.14 |
+| KernelRidge                   |              -2.90 |     -2.89 |   391.30 |      29.36 |
+| GaussianProcessRegressor      |          -32738.87 | -32676.28 | 35846.39 |     160.09 |
