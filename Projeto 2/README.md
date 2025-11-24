@@ -87,4 +87,4 @@ As camadas convolucionais transformam a imagem de forma progressiva, partindo de
 
 ## 📹 Vídeo de Apresentação
 
-[Link do vídeo demonstrativo]()
+[Link do vídeo demonstrativo](https://youtu.be/6-21wum-bLs)
